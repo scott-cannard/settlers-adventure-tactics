@@ -1,0 +1,132 @@
+﻿html {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: darkgray;
+    overflow: hidden;
+}
+
+.viewport {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    position: relative;
+    margin: 2px;
+    padding: 0;
+}
+
+#map_outer {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+}
+
+#map_inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#map_image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: none;
+}
+
+#map_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#side_bar {
+    width: calc(20% - 5px);
+    height: calc(100% - 6px);
+    position: relative;
+    z-index: 2;
+    float: right;
+    margin: 3px 3px 3px 0px;
+    outline: 3px solid #333c4f;
+    background-color: lightgray;
+
+    position: relative;
+}
+
+#main_panel {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: transparent;
+}
+
+.chart {
+    width: calc(100% - 2px);
+    margin-left: 1px;
+    table-layout: fixed;
+}
+.chart caption {
+    font-weight: bold;
+    padding-bottom: 0.35em;
+}
+
+.initialArmy td:nth-child(3n+1) {
+    width: 43%;
+    text-align: right;
+}
+.initialArmy td:nth-child(3n+2) {
+    width: 0.2em;
+}
+
+.expectedLosses th {
+    font-weight: normal;
+    text-decoration: underline;
+}
+.expectedLosses th:nth-child(5n+1) {
+    width: 35%;
+}
+.expectedLosses th:nth-child(5n+2) {
+    width: 18%;
+}
+.expectedLosses th:nth-child(5n+3) {
+    width: 18%;
+}
+.expectedLosses th:nth-child(5n+4) {
+    width: 18%;
+}
+.expectedLosses td:nth-child(5n+1) {
+    text-align: right;
+}
+.expectedLosses td:nth-child(5n+2) {
+    text-align: center;
+}
+.expectedLosses td:nth-child(5n+3) {
+    font-weight: bold;
+    text-align: center;
+}
+.expectedLosses td:nth-child(5n+4) {
+    text-align: center;
+}
+
+.battleInfo td {
+    text-align: center;
+}
+
+#initial_army table {
+    outline: 2px solid crimson;
+    background-color: linen;
+}
+#initial_army caption {
+    background-color: linen;
+}
+
+#battle_info table {
+    outline: 2px solid steelblue;
+    background-color: aliceblue;
+}

@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Scott Cannard" />
+    <title>The Settlers Online: Tactical Maps</title>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" /> 
+</head>
+<body>
+    <div class="viewport">
+        <div id="map_outer">
+            <div id="map_inner">
+                <img id="map_image" alt="Adventure Map" usemap="#enemy_camps" />
+                <map id="map_hotspots" name="enemy_camps"></map>
+                <canvas id="map_overlay"></canvas>
+            </div>
+        </div>
+        <div id="side_bar">
+            <table id="main_panel">
+                <tr>
+                    <td align="center" style="padding-top:2em;">
+                        Map:
+                        <select id="map_select" onchange="loadContent();">
+                            <option value="Outlaws">Outlaws</option>
+                            <option value="Stealing from the Rich">Stealing from the Rich</option>
+                            <option value="The Dark Priests">The Dark Priests</option>
+                            <option value="The Lost Skull">The Lost Skull</option>
+                            <option value="Traitors">Traitors</option>
+                            <option value="Tropical Sun">Tropical Sun</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr style="line-height:1.5em;"><td>&nbsp;</td></tr>
+                <tr>
+                    <td id="initial_army"><table></table></td>
+                </tr>
+                <tr style="line-height:1em;"><td>&nbsp;</td></tr>
+                <tr>
+                    <td id="expected_losses"><table></table></td>
+                </tr>
+                <tr style="line-height:1em;"><td>&nbsp;</td></tr>
+                <tr>
+                    <td id="battle_info"><table></table></td>
+                </tr>
+            </table>
+            <span id="mousePos"></span>
+            <div id="area_mapper" style="position:absolute; bottom:0; width:100%; visibility:collapse;">
+                <table style="border-collapse:collapse;">
+                    <tr>
+                        <td colspan="2" align="center"><input type="text" size="2" disabled="disabled" style="text-align: center; border: 1px solid darkslategray; background-color: white; color: black;" id="cTop" /></td>
+                        <td rowspan="5"><textarea rows="9" cols="27" readonly="readonly" id="coordsList" style="font-family:Tahoma;font-size:7.5pt;"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="text" size="2" disabled="disabled" style="text-align: center; border: 1px solid darkslategray; background-color: white; color: black;" id="cLeft" /></td>
+                        <td align="center"><input type="text" size="2" disabled="disabled" style="text-align: center; border: 1px solid darkslategray; background-color: white; color: black;" id="cRight" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input size="2" type="text" disabled="disabled" style="text-align: center; border: 1px solid darkslategray; background-color: white; color: black;" id="cBottom" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="button" value="Add" onclick="addCoordsToList();" /></td>
+                        <td align="center"><input type="button" value="Clear" onclick="clearCoords();" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type="button" value="Save to file" onclick="saveCoordsToFile();" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!---------------------------------------------- Scripts ---------------------------------------------->
+    <script>
+        var mapX, mapY;
+        window.addEventListener("mousemove", function (e) {
+            mapX = parseInt(e.clientX) - 2;
+            mapY = parseInt(e.clientY) - 2;
+            document.getElementById("mousePos").innerHTML = mapX + ", " + mapY;
+        }, false);
+    </script>
+    <script src="main.js"></script>
+    <script src="tactical.js"></script>
+    <script src="automation.js"></script>
+</body>
+</html>
